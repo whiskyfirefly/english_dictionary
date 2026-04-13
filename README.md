@@ -1,13 +1,10 @@
 # 📚 English Dictionary với Radix Trie Visualizer
 
-Ứng dụng từ điển tiếng Anh tương tác sử dụng **Radix Trie** - cấu trúc dữ liệu tối ưu cho tìm kiếm prefix nhanh và tiết kiệm bộ nhớ.
+Ứng dụng từ điển tiếng Anh tương tác sử dụng **Radix Trie** - cấu trúc dữ liệu tối ưu cho tìm kiếm prefix nhanh.
 
 **✨ Nổi bật**: 
 - Giao diện **2 cột**: Tìm kiếm/Thêm/Xóa từ (trái) ↔ Tree Visualization (phải)
 - **Visualize cây Radix Trie real-time** với màu sắc theo độ sâu
-- Tất cả **thông báo dùng Dialog** (không hiện ở left panel)
-- Code **đã được clean up** - xóa tất cả code thừa
-
 
 ---
 
@@ -66,7 +63,6 @@ eng_dictionary/
 
 - Python 3.7 trở lên
 - pip (Package manager cho Python)
-- Trình duyệt web hiện đại (Chrome, Firefox, Safari, Edge)
 
 ### 2️⃣ **Cài Đặt Thư Viện**
 
@@ -311,8 +307,6 @@ app.run(debug=True, port=5001)  # Đổi port
 2. Kiểm tra Flask server chạy bình thường (terminal)
 3. Xóa browser cache: Ctrl+Shift+Delete
 
-### **Từ đã xóa vẫn hiện ở gợi ý (gầy)**
-Hành vi bình thường! Từ bị xóa vẫn có trong cây (`is_deleted = true`) nhưng báo màu đỏ. Thêm lại từ.
 
 ---
 
@@ -322,6 +316,5 @@ Nếu gặp vấn đề:
 1. Kiểm tra console browser (F12)
 2. Kiểm tra terminal nơi chạy server
 3. Đọc kỹ thông báo lỗi
-
 ---
 
