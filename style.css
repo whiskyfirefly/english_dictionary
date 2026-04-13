@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.main-wrapper {
+    display: flex;
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: calc(100vh - 40px);
+}
+
+/* Left Panel - Dictionary Interface */
+.left-panel {
+    flex: 0 0 48%;
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    background: linear-gradient(135deg, #0084ff 0%, #764ba2 100%);
+}
+
+.left-panel .container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    min-height: 100%;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Right Panel - Tree Visualization */
+.right-panel {
+    flex: 0 0 48%;
+    background: transparent;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.visualization-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.tree-title {
+    display: none;
+}
+
+.tree-canvas {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.tree-node {
+    transition: transform 0.1s ease;
+}
+
+.tree-node:hover {
+    transform: scale(1.15);
+    z-index: 100 !important;
+}
+
+.title {
+    text-align: left;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.search-box input:focus {
+    border-color: #667eea;
+}
+
+.search-box button {
+    padding: 12px 30px;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #764ba2;
+}
+
+
+
+.result {
+    min-height: 100px;
+}
+
+.word-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+}
+
+.definition {
+    color: #555;
+    font-size: 16px;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.example {
+    background-color: #f0f0f0;
+    padding: 12px;
+    border-left: 4px solid #667eea;
+    margin: 15px 0;
+    border-radius: 4px;
+    color: #666;
+    font-style: italic;
+}
+
+.pronunciation {
+    color: #667eea;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.add-word-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.add-word-btn:hover {
+    background-color: #229954;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.suggestions.show {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}

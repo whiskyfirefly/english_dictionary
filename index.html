@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Dictionary with Radix Trie Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Left Panel: Dictionary Interface -->
+        <div class="left-panel">
+            <div class="container">
+                <h1 class="title">Từ điển Tiếng Anh 📚</h1>
+                
+                <div class="search-box">
+                    <div class="input-wrapper">
+                        <input type="text" id="inp-word" placeholder="Nhập từ cần tra cứu...">
+                        <div class="suggestions" id="suggestions-list"></div>
+                    </div>
+                    <button id="search-btn">Tìm kiếm</button>
+                </div>
+            
+                <div class="result" id="result">
+                    <button class="add-word-btn" onclick="showAddForm()">+ Thêm từ khóa cho từ điển</button>
+                </div>
+
+        <!-- Template: Word Result -->
+        <template id="word-result-template">
+            <div class="word-title">
+                <span id="result-word"></span>
+                <button class="delete-btn" id="result-delete-btn">🗑️</button>
+            </div>
+            <div class="pronunciation" id="result-pronunciation"></div>
+            <div class="definition" id="result-definition"></div>
+            <div id="result-examples"></div>
+            <button class="add-word-btn" onclick="showAddForm()">+ Thêm từ khóa cho từ điển</button>
+        </template>
+
+        <!-- Template: Add Form -->
+        <template id="add-form-template">
+            <div class="add-form-wrapper" style="margin-top: 20px; padding: 20px; background-color: #e8e8e8; border-radius: 8px;">
+                <h3 style="margin-bottom: 15px;">Thêm từ mới</h3>
+                <input type="text" id="new-word" placeholder="Từ (tiếng Anh)" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-family: Arial, sans-serif;">
+                <textarea id="new-definition" placeholder="Định nghĩa (tiếng Việt)" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; min-height: 50px; font-family: Arial, sans-serif; resize: none;"></textarea>
+                <input type="text" id="new-pronunciation" placeholder="Phát âm (tùy chọn)" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-family: Arial, sans-serif;">
+                <input type="text" id="new-examples" placeholder="Ví dụ (tùy chọn, phân cách bằng dấu chấm phẩy)" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 5px; font-family: Arial, sans-serif;">
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button id="form-submit" onclick="submitNewWord()" style="flex: 1; background-color: #27ae60; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-family: Arial, sans-serif;">Lưu</button>
+                    <button id="form-cancel" onclick="cancelAddForm()" style="flex: 1; background-color: #ff0202; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-family: Arial, sans-serif;">Hủy</button>
+                </div>
+            </div>
+        </template>
+            </div>
+        </div>
+
+        <!-- Right Panel: Radix Trie Visualization -->
+        <div class="right-panel">
+            <div class="visualization-container">
+                <h2 class="tree-title">🌳 Radix Trie Tree Visualization</h2>
+                <div id="tree-canvas" class="tree-canvas"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
